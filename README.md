@@ -41,9 +41,9 @@ gify_plot(X=[df["G1_X"],df["G2_X"]],
           )
 ```
 
-It ouputs a list of PNG in the dedicated folder, along with the resulting GIF.
+**OUTPUT**: It ouputs a list of PNG in the dedicated folder, along with the resulting GIF.
 
-#Supported libraries and plots:
+# Supported libraries and plots:
 - plt:
   - line
   - bar
@@ -58,6 +58,3 @@ It ouputs a list of PNG in the dedicated folder, along with the resulting GIF.
   - scatter
   - area
   - bar
-
-
-
