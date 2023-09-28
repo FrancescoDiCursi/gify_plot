@@ -23,9 +23,19 @@ A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotl
 # How to use it
 ```
 #A random df as a showcase
-df = pd.DataFrame({"A" : np.random.randint(low=1, high=100, size=10),
-                     "B"  : np.random.normal(0.0, 1.0, size=10)
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame({"G1_X" : np.random.randint(low=1, high=100, size=100),
+                    "G2_X"  : np.random.randint(low=1,high=100, size=100),
+                   "G1_Y" : np.random.randint(low=1, high=100, size=100),
+                    "G2_Y"  : np.random.randint(low=1, high=100, size=100),
                      })
+gify_plot(X=[df["G1_X"],df["G2_X"]],
+           Y=[df["G1_Y"],df["G2_Y"]],
+           plot_type="line", plot_library="plt", name="test_gif",
+           plot_title="Test gif", xaxis_title="year", yaxis_title="time"
+          )
 ```
 
 
