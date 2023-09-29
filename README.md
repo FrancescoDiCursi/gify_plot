@@ -30,7 +30,7 @@ gify_plot(temp_df,
 # Args
   ### Mandatory
   - **original_df**:pd.DataFrame ==> a dataset containing at least three columns:
-    - xaxis_title (i.e., a list of int or float; dates will be added in future, use only year for now; a range >= 20 years is suggested)
+    - xaxis_title (i.e., an int in YYYY format OR strings in 'YYYY-MM-DD' format ;a range >= 20 years is suggested)
     - yaxis_title (i.e., a list of int or float )
     - category (i.e., categorical variables, n groups <=7 suggested)
   - **plot_type**:str ==> The plot_type changes according to plot_library
@@ -44,6 +44,8 @@ gify_plot(temp_df,
   - **duration** = 100 ==> The delay in skipping to the next frame in ms
   - **loop** = 0
   - **save_frames** = True ==> If False, delete all png files that have been used to create the gif
+  - **sort_on_x** = True 
+  - **tick_interval** = it scales across x values, default 7.
 
 
 
