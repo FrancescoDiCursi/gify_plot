@@ -6,54 +6,50 @@ A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotl
 
 # Args
   ### Mandatory
-  - **X**:list ==> [ [x of type 1],[x of type 2],[x of type 3], ...]
-  - **Y**:list ==> Same as X but for y elements. If only one Y el is given, then the array is updated to have the same length of X
+  - **original_df**:pd.DataFrame ==> a dataset containing at least three columns:  xaxis_title (i.e., x values), yaxis_title (i.e., y values), category (i.e., groups)
   - **plot_type**:str ==> The plot_type changes according to plot_library
   - **plot_library**:str ==> plt | sns | px  (short forms for matplotlib.pyplot, seaborn and plotly.express)
   - **name**:str ==> The name of pngs and gif given as output,
-  - **plot_title**:str
-  - **xaxis_title**:str
-  - **yaxis_title**:str
+  - **plot_title**:str 
+  - **xaxis_title**:str ==> The name of the column with x values
+  - **yaxis_title**:str ==> The name of the column with y values
   ### Optional
-  - **legend_labels** = [] ==> If empty then progressive numbers are used for the elements in the legend. If inserted, be sure to put names in the same order of provided data
   - **colors** = ["blue","red","green","orange","violet","yellow","black","brown","cyan"] ==> it must have at least the same length of groups provided in the provided data
-  - **sort_by_x** = True ==> Sorts value by xaxis (e.g. date)
-  - **sort_by_y** = False ==> If set to True, it overrides sort_by_x
+  - **duration** = 100 ==> The delay in skipping to the next frame in ms
+  - **loop** = 0
+  - **save_frames** = True ==> If False, delete all png files that have been used to create the gif
 
 # How to use it
 ```
-#A random df as a showcase
+# WARNING:
 
-from gify_plot import *  (or, alternatively, "from gify_plot import gify_plot")
-import numpy as np
-import pandas as pd
+# Using more than 5/7 categories ends with a cluttered result.
+# The fewer, the better.
 
-df = pd.DataFrame({"G1_X" : np.random.randint(low=1, high=100, size=100),
-                    "G2_X"  : np.random.randint(low=1,high=100, size=100),
-                   "G1_Y" : np.random.randint(low=1, high=100, size=100),
-                    "G2_Y"  : np.random.randint(low=1, high=100, size=100),
-                     })
+# The following csv can be freely downlaoded at https://www.kaggle.com/datasets/sazidthe1/world-gdp-data?select=gdp_data.csv
 
-gify_plot(X=[df["G1_X"],df["G2_X"]],
-           Y=[df["G1_Y"],df["G2_Y"]],
+df=pd.read_csv("gdp_data.csv")
+temp_df=df[(df["country_name"].isin(["Italy","Spain"]))]
+gify_plot(temp_df,
            plot_type="line", plot_library="plt", name="test_gif",
-           plot_title="Test gif", xaxis_title="year", yaxis_title="time"
+           plot_title="GDP per country", xaxis_title="year", yaxis_title="value", category="country_code",
+           save_frames=False
           )
 ```
 
-**OUTPUT**: It ouputs a list of PNG in the dedicated folder, along with the resulting GIF.
+**OUTPUT**: It ouputs a list of png in the dedicated folder, along with the resulting gif.
 
 # Supported libraries and plots:
-- plt:
+- **plt** (i.e., matplotlib.pyplot):
   - line
   - bar
   - scatter
   - stackplot (no legend)
-- sns:
+- sns (i.e., seaborn):
   - lineplot
   - scatterplot
   - barplot
-- px:
+- px (i.e., plotly.express):
   - line
   - scatter
   - area
