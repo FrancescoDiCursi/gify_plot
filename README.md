@@ -2,7 +2,7 @@
 A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotly).
 
 This is the output of the example provided in "How to use it".
-![](https://github.com/FrancescoDiCursi/gify_plot/blob/main/test_output.gif)
+![](https://github.com/FrancescoDiCursi/gify_plot/blob/main/test_output.gif?raw=true)
 
 # How to install it
 `pip install gify_plot`
