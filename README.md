@@ -1,8 +1,28 @@
 # gify_plot
 A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotly).
-
 # How to install it
 `pip install gify_plot`
+
+# How to use it
+```
+# WARNING:
+
+# Using more than 5/7 categories ends with a cluttered result.
+# The fewer, the better.
+
+# The following csv can be freely downlaoded at https://www.kaggle.com/datasets/sazidthe1/world-gdp-data?select=gdp_data.csv
+
+df=pd.read_csv("gdp_data.csv")
+temp_df=df[(df["country_name"].isin(["Italy","Spain","France","Germany"]))]
+gify_plot(temp_df,
+           plot_type="line", plot_library="px", name="test_output",
+           plot_title="GDP per country", xaxis_title="year", yaxis_title="value", category="country_code",
+           save_frames=False
+          )
+```
+
+**OUTPUT**: It ouputs a list of png in the dedicated folder, along with the resulting gif.
+![](https://github.com/FrancescoDiCursi/gify_plot/blob/main/test_output.gif)
 
 # Args
   ### Mandatory
@@ -22,25 +42,7 @@ A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotl
   - **loop** = 0
   - **save_frames** = True ==> If False, delete all png files that have been used to create the gif
 
-# How to use it
-```
-# WARNING:
 
-# Using more than 5/7 categories ends with a cluttered result.
-# The fewer, the better.
-
-# The following csv can be freely downlaoded at https://www.kaggle.com/datasets/sazidthe1/world-gdp-data?select=gdp_data.csv
-
-df=pd.read_csv("gdp_data.csv")
-temp_df=df[(df["country_name"].isin(["Italy","Spain"]))]
-gify_plot(temp_df,
-           plot_type="line", plot_library="plt", name="test_gif",
-           plot_title="GDP per country", xaxis_title="year", yaxis_title="value", category="country_code",
-           save_frames=False
-          )
-```
-
-**OUTPUT**: It ouputs a list of png in the dedicated folder, along with the resulting gif.
 
 # Supported libraries and plots:
 - **plt** (i.e., matplotlib.pyplot):
