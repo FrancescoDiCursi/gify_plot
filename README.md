@@ -7,8 +7,8 @@ A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotl
 # Args
   ### Mandatory
   - **original_df**:pd.DataFrame ==> a dataset containing at least three columns:
-    - xaxis_title (i.e., a list of int or flots; dates will be added in future, use only year for now; a range >= 20 years is suggested)
-    - yaxis_title (i.e., a list of int or flots )
+    - xaxis_title (i.e., a list of int or float; dates will be added in future, use only year for now; a range >= 20 years is suggested)
+    - yaxis_title (i.e., a list of int or float )
     - category (i.e., categorical variables, n groups <=7 suggested)
   - **plot_type**:str ==> The plot_type changes according to plot_library
   - **plot_library**:str ==> plt | sns | px  (short forms for matplotlib.pyplot, seaborn and plotly.express)
