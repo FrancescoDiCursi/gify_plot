@@ -17,7 +17,7 @@ A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotl
   - **xaxis_title**:str ==> The name of the column with x values
   - **yaxis_title**:str ==> The name of the column with y values
   ### Optional
-  - **colors** = ["blue","red","green","orange","violet","yellow","black","brown","cyan"] ==> it must have at least the same length of groups provided in the provided data
+  - **colors** = ["blue","red","green","orange","violet","yellow","black","brown","cyan"] ==> it must have at least the same length of groups provided in the data
   - **duration** = 100 ==> The delay in skipping to the next frame in ms
   - **loop** = 0
   - **save_frames** = True ==> If False, delete all png files that have been used to create the gif
