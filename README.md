@@ -1,12 +1,15 @@
 # gify_plot
-A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotly)
+A simple Python package to turn your plots into gifs (Matplotlib, Seabron, Plotly).
 
 # How to install it
 `pip install gify_plot`
 
 # Args
   ### Mandatory
-  - **original_df**:pd.DataFrame ==> a dataset containing at least three columns:  xaxis_title (i.e., x values), yaxis_title (i.e., y values), category (i.e., groups)
+  - **original_df**:pd.DataFrame ==> a dataset containing at least three columns:
+    - xaxis_title (i.e., a list of int or flots; dates will be added in future, use only year for now; a range >= 20 years is suggested)
+    - yaxis_title (i.e., a list of int or flots )
+    - category (i.e., categorical variables, n groups <=7 suggested)
   - **plot_type**:str ==> The plot_type changes according to plot_library
   - **plot_library**:str ==> plt | sns | px  (short forms for matplotlib.pyplot, seaborn and plotly.express)
   - **name**:str ==> The name of pngs and gif given as output,
@@ -45,11 +48,11 @@ gify_plot(temp_df,
   - bar
   - scatter
   - stackplot (no legend)
-- sns (i.e., seaborn):
+- **sns** (i.e., seaborn):
   - lineplot
   - scatterplot
   - barplot
-- px (i.e., plotly.express):
+- **px** (i.e., plotly.express):
   - line
   - scatter
   - area
